@@ -91,7 +91,6 @@ class prismaModel {
   }
 
   static async createMessageModel (message, receptorUser, user) {
-    console.log(user,receptorUser);
     
     const messageCreated = await prisma.messages.create({
       data: {

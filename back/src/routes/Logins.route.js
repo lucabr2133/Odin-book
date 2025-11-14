@@ -4,14 +4,12 @@ import bcrypt from 'bcryptjs';
 import passport from 'passport';
 import { z } from 'zod';
 function ensureAuth(req, res, next) {
-  console.log(res.user);
   
   if (req.isAuthenticated()) return next();
   return res.status(401).json({ error: 'No autorizado' });
 }
 
 const Loginrouter = Router();
-// creating a schema for strings
 const User = z.object(
   {
     username: z.string().min(4),
@@ -57,11 +55,9 @@ Loginrouter.post('/signup', async (req, res) => {
   } catch (err) {
     console.log(err);
     
-    // Si es error de username duplicado
     if (err.message.includes("Username already exists")) {
       return res.status(400).json({ errors: { username: err.message } });
     }
-    // Para cualquier otro error
     console.error(err);
     return res.status(500).json({ error: "Internal server error" });
   }

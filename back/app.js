@@ -1,7 +1,6 @@
 import e from 'express';
 import passport from 'passport';
 import session from 'express-session';
-import { PrismaSessionStore } from '@quixo3/prisma-session-store';
 import cors from 'cors';
 import router from './src/routes/route.js';
 import { configPassport } from './config/passport.js';
@@ -9,7 +8,6 @@ import { Server } from 'socket.io';
 import { createServer } from 'node:http';
 import { prisma } from './src/model/prismamodel.js';
 
-// Carga dinámica según NODE_ENV
 
 
 
@@ -18,7 +16,7 @@ import { prisma } from './src/model/prismamodel.js';
 const app = e();
 const server=createServer(app)
 const io= new Server(server, {cors: {
-    origin: "http://localhost:5173", // frontend (Vite/React)
+    origin: "http://localhost:5173", 
     methods: ["GET", "POST"],
     credentials: true
   }})

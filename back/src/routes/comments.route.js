@@ -4,7 +4,6 @@ const commentRouter = Router();
 commentRouter.post('/comments', async (req, res) => {
   const { comment, userId, publicationId } = req.body;
   if(!comment||!userId||!publicationId) return res.sendStatus(400)
-  console.log(userId,'aaaa')
   const createComment = await ControlerData.createCommentController(comment, userId, publicationId);
   res.json({
     message: 'comment Created succeful',

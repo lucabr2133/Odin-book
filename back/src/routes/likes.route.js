@@ -12,10 +12,8 @@ likesRouter.delete('/likes', async (req, res) => {
   res.json({ likesPublication, redirectUrl: 'http://localhost:5173/' });
 });
 likesRouter.get('/likes', async (req, res) => {
-  console.log('aa');
   
   const likesPublication = await ControlerData.getLikePublication();
-  console.log(likesPublication);
 
   res.json(likesPublication);
 });
