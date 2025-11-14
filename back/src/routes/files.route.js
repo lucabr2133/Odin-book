@@ -7,8 +7,8 @@ import ControlerData from '../controller/controller.js';
 
 cloudinary.config({
   cloud_name: 'dv8swkyjy',
-  api_key: '435913177696643',
-  api_secret: '0dLPSEUFTge9rkqEn5_JcN-EbPY'
+  api_key: process.env.CLOUDFLARE_API_KEY,
+  api_secret: process.env.CLOUDFLARE_API_SECRET
 });
 
 const filesRouter= Router()
