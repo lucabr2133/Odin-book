@@ -66,7 +66,7 @@ io.to(publicationId).emit("publication comments", comment);
 app.use(e.json());
 app.use(e.urlencoded({ extended: true }));
 app.use(cors({
-  origin: 'http://localhost:5173', // Asegúrate de que sea el puerto correcto
+  origin: process.env.PUBLIC_URL, // Asegúrate de que sea el puerto correcto
   credentials: true // Permite enviar cookies en la solicitud
 }));
 
@@ -76,15 +76,11 @@ app.use(session({
   secret: 'keyboard cat',
   resave: false,
   saveUninitialized: true,
-  // store: new PrismaSessionStore(prisma, {
-  //   checkPeriod: 2 * 60 * 1000, // Cada 2 minutos limpia sesiones expiradas
-  //   dbRecordIdIsSessionId: true,
-  //   dbRecordIdFunction: undefined
-  // }),
+
   cookie: {
-    maxAge: 1000 * 60 * 60 * 24, // 1 día
-    sameSite: 'lax', // Usa 'none' si tienes HTTPS
-    httpOnly: true // Evita que JavaScript acceda a la cookie (buena práctica)
+    maxAge: 1000 * 60 * 60 * 24, 
+    sameSite: 'lax',
+    httpOnly: true
   }
 }));
 configPassport()
