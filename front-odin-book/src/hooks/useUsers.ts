@@ -1,11 +1,12 @@
 import { useEffect, useState } from 'react'
-import { User } from '../src/types'
+import { User } from '../types'
+const apiUrl = import.meta.env.VITE_API_URL;
 
 function useUsers () {
   const [users, setUsers] = useState<User[]|null>(null)
   useEffect(() => {
     async function getAllUsers () {
-      const data = await fetch('http://localhost:3000/logins/users')
+      const data = await fetch(`${apiUrl}/logins/users`)
       const res:User[] = await data.json()
       setUsers(res)
     }

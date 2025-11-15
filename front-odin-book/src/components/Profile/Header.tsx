@@ -15,6 +15,7 @@ interface Props {
   styles: Record<string, string>
   usernameParam: string
 }
+const apiUrl = import.meta.env.VITE_API_URL;
 
 function Header({ data, actions, usernameParam, styles }: Props) {
   const { userData, userSession, publications, following } = data
@@ -23,7 +24,7 @@ function Header({ data, actions, usernameParam, styles }: Props) {
 
   function onHandleLogout() {
     localStorage.removeItem('token')
-    fetch('http://localhost:3000/logins/logout', {
+    fetch(`${apiUrl}/logins/logout`, {
       credentials: 'include',
     })
       .then((response) => response.json())
@@ -168,7 +169,6 @@ function Header({ data, actions, usernameParam, styles }: Props) {
       <DialogUpdateProfile
         user={userData}
         userParams={usernameParam}
-        styles={styles}
         setUserData={setUserData}
         openDialgo={openDialog}
         setOpenDialog={setOpenDialog}

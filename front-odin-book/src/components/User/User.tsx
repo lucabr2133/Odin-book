@@ -1,4 +1,4 @@
-import useFollowing from '../../../hooks/useFollowing'
+import useFollowing from '../../hooks/useFollowing'
 import CreatePublication from '../CreatePublication/CreatePublication'
 import { useState, useContext, useReducer, useEffect } from 'react'
 import onHandleFollow from '../../../services/onHandleFollow'

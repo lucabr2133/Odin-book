@@ -11,7 +11,6 @@ function App () {
     throw new Error('UserProfile debe ser usado dentro de un UserSessionProvider');
   }
 
-  // Si el contexto existe, desestructuramos 'user' y 'loading'
   const { user, loading } =context
   if (loading) {
     return (

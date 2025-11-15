@@ -1,12 +1,14 @@
 import { Link, useNavigate } from 'react-router'
 import onHandleSubmitLogin from '../../../services/onHandleLogin'
-import useUserSession from '../../../hooks/getUserSession'
+import useUserSession from '../../hooks/getUserSession'
 import { useState } from 'react'
 import styles from './login.module.scss'
 import React from 'react'
 import { errorMesagges } from '../../types'
 import { SubmitHandler, useForm } from 'react-hook-form'
 import { Inputs } from '../Signup/Signup'
+const apiUrl = import.meta.env.VITE_API_URL;
+
 function Login () {
   const {register,setError,handleSubmit,formState:{errors,isSubmitting}} =useForm<Inputs>()
   const { user, setUser } = useUserSession()
@@ -45,7 +47,7 @@ const navigate=useNavigate()
               }}>Enter as a guest</button>
 
           <Link to='/Signup'>Create account</Link>
-          <Link to='http://localhost:3000/auth/github'><img width='40px' src='/github.jpg' alt='' /></Link>
+          <Link to={`${apiUrl}/auth/github`}><img width='40px' src='/github.jpg' alt='' /></Link>
         </form>
 
       </div>

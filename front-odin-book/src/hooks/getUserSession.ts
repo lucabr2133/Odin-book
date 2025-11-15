@@ -1,14 +1,15 @@
 import { useState, useEffect } from 'react'
-import { User } from '../src/types'
-import {data} from '../src/types'
+import { User } from '../types'
+import {data} from '../types'
 function useUserSession () {
+const apiUrl = import.meta.env.VITE_API_URL;
 
   const [user, setUser] = useState<User|null>(null)
   const [loading, setLoading] = useState<boolean>(true)
   useEffect(() => {
     async function getData () {
       try {
-        const res = await fetch('http://localhost:3000/logins/', {
+        const res = await fetch(`${apiUrl}/logins/`, {
           credentials: 'include',
         })
 
@@ -27,7 +28,7 @@ function useUserSession () {
     }
 
     getData() // Llamamos a la función para obtener los datos del usuario
-  }, []) // Dependencia vacía para que solo se ejecute una vez cuando el componente se monte
+  }, [apiUrl]) // Dependencia vacía para que solo se ejecute una vez cuando el componente se monte
 
   return { user, loading, setUser }
 }

@@ -24,7 +24,7 @@ function CreatePublication({ setOpenDialog, opendialog }: props) {
 
   const { user } = userContex
   const { dispatch } = contex
-
+if(!user) return
 const {register,handleSubmit,setError,formState:{errors,isSubmitting}}=useForm<Inputs>()
 const onSubmit:SubmitHandler<Inputs>=async(data)=>{
           try {

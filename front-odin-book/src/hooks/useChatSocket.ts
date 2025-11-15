@@ -1,5 +1,5 @@
 import { useEffect } from "react";
-import { socket } from "../src/socket";
+import { socket } from "../socket";
 
 export function useChatSocket() {
   useEffect(() => {

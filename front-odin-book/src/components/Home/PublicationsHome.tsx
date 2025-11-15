@@ -2,8 +2,8 @@ import PublicationOpen from './PublicationOpen'
 import { Link } from 'react-router'
 import React, { useEffect, useReducer, useState } from 'react'
 import { Likes, Publications, User } from '../../types'
-import useLikesPublication from '../../../hooks/useLikes'
-import usePublicationLikes ,{myAction,myState}from '../../../hooks/usePublicationLikes'
+import useLikesPublication from '../../hooks/useLikes'
+import usePublicationLikes ,{myAction,myState}from '../../hooks/usePublicationLikes'
 interface actions {
   onHandleLikePublication:(e:React.MouseEvent<HTMLImageElement>,publicationId:string,userId:string)=>Promise<Likes>
   onHandleDeletedLike:(id:string)=>Promise<Likes>

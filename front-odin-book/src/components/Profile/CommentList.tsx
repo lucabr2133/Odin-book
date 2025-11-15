@@ -1,9 +1,9 @@
 import onHandleSubmitComment from '../../../services/onHandleSubmitComment'
-import useComments from '../../../hooks/getComments'
+import useComments from '../../hooks/getComments'
 import React, { useEffect, useState } from 'react'
 import { Comments, Publications, User } from '../../types'
 import { socket } from '../../socket'
-import { useChatSocket } from '../../../hooks/useChatSocket'
+import { useChatSocket } from '../../hooks/useChatSocket'
 interface props {
   styles:Record<string,string>
   publication:Publications,

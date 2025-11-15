@@ -1,13 +1,12 @@
 import { useContext, useEffect, useState } from 'react'
-import useMessages from '../../../hooks/useMessages.js'
+import useMessages from '../../hooks/useMessages.js'
 import CreatePublication from '../CreatePublication/CreatePublication.jsx'
 import onHandleMessageSubmit from '../../../services/onHandleMessageSubmit.js'
-import styles from './Messages.module.css'
 import { UserContext, UserSession } from '../../contex/context.js'
 import MainHeader from '../Header/Header.jsx'
 import React from 'react'
 import { Messages as messages, User } from '../../types.js'
-import {useChatSocket} from '../../../hooks/useChatSocket'
+import {useChatSocket} from '../../hooks/useChatSocket'
 import { socket } from '../../socket.js'
 function Messages() {
   const contex = useContext(UserSession)

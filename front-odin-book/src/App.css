@@ -12,8 +12,8 @@ a>*{
   font-family: monospace;
 }
 img,div {
-  user-select: none;   /* Evita que se pueda seleccionar la imagen */
-  outline: none;       /* Elimina bordes al enfocar */
+  user-select: none;  
+  outline: none;     
 }
 input{
   background-color:transparent;

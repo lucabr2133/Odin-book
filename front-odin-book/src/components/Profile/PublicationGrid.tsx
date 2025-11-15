@@ -29,10 +29,10 @@ function PublicationGrid({ styles, data, extra }: props) {
         margin: '10px auto',
         display: 'flex',
         flexDirection: 'column',
-        gap: '20px', // espacio entre publicaciones
+        gap: '20px',
         backgroundColor: 'rgb(36, 36, 39)',
         width: '100%',
-        maxWidth: '1000px', // evita que se expanda demasiado
+        maxWidth: '1000px',
       }}
     >
       {publications && publications.length > 0 ? (

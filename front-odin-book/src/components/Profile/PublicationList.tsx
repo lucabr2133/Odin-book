@@ -1,10 +1,10 @@
 import React, { useEffect, useMemo, useRef } from 'react'
 import CommentList from './CommentList'
-import { Publications, User } from '../../types'
+import { Likes, Publications, User } from '../../types'
 import { myAction } from '../../Reducers/PublicationReducer'
 import onHandleDeletedLike from '../../../services/onHandleDeletedLike'
 import onHandleLikePublication from '../../../services/onHandleLikePublication'
-import usePublicationLikes from '../../../hooks/usePublicationLikes'
+import usePublicationLikes from '../../hooks/usePublicationLikes'
 import { user } from '@heroui/react'
 interface Props {
   styles: Record<string, string>
@@ -21,6 +21,7 @@ interface Props {
     setOpenedId: React.Dispatch<React.SetStateAction<string | null>>
   }
 }
+const apiUrl = import.meta.env.VITE_API_URL;
 
 function PublicationList({ styles, data, actions }: Props) {
   const { openedId, users, publication, userSession, userData } = data
@@ -31,13 +32,13 @@ function PublicationList({ styles, data, actions }: Props) {
   const panelRef = useRef<HTMLDivElement>(null)
   const {addLike,deleteLike,state}=usePublicationLikes()
 const likePublication = useMemo(() => {
-  return state.likes.filter((like) => like.id === publication.id);
+  return state.likes.filter((like:Likes) => like.id === publication.id);
 }, [state.likes, publication.id]);
 
   async function deletePublication(publicationId: string) {
     dispatch({ type: 'delete', publicationId })
     try {
-      await fetch(`http://localhost:3000/publications/publications/${publicationId}`, {
+      await fetch(`${apiUrl}publications/publications/${publicationId}`, {
         method: 'delete',
         credentials: 'include',
       })
@@ -87,7 +88,7 @@ const likePublication = useMemo(() => {
       <div style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
         <img
         onClick={async(e)=>{
-          const checked= likePublication.filter((like)=>like.user_id===userSession.id)
+          const checked= likePublication.filter((like:Likes)=>like.user_id===userSession.id)
           if(checked.length>0){
             deleteLike(checked[0])
             onHandleDeletedLike(checked[0].id)
