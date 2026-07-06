@@ -22,37 +22,30 @@ function PublicationGrid({ styles, data, extra }: props) {
   const [openedId, setOpenedId] = useState<string | null>(null)
 
   return (
-    <div className=''
+    <div
       style={{
         margin: '10px auto',
         display: 'flex',
         flexDirection: 'column',
-        gap: '20px',
-        backgroundColor: 'rgb(36, 36, 39)',
+        gap: '16px',
+        backgroundColor: '#07070d',
         width: '100%',
         maxWidth: '1000px',
+        padding: '0 8px',
       }}
     >
-      {publications ? 
-    sortedVideos.map((publication) => (
+      {publications
+        ? sortedVideos.map((publication) => (
           <PublicationList
             key={publication.id}
             styles={styles}
-            actions={{ setOpenedId, setUpdateForm, deleteAction,setPublications }}
-            data={{
-              openedId,
-              users,
-              publication,
-              userData,
-              publications,
-              userSession,
-            }}
+            actions={{ setOpenedId, setUpdateForm, deleteAction, setPublications }}
+            data={{ openedId, users, publication, userData, publications, userSession }}
           />
         ))
-      
-       : (
-        <p style={{ color: '#ccc', textAlign: 'center' }}>No hay publicaciones</p>
-      )}
+        : (
+          <p style={{ color: '#6a6a8a', textAlign: 'center', fontFamily: "'Rajdhani', monospace", fontSize: '0.95rem', letterSpacing: '0.08em', padding: '40px' }}>No posts yet</p>
+        )}
     </div>
   )
 }

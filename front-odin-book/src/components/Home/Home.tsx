@@ -56,38 +56,48 @@ function Home () {
 
           </div>
         </main>
-        <aside style={{
-          display: 'flex',
-          flexDirection: 'column'
-        }}
+        <aside
+          style={{ display: 'flex', flexDirection: 'column' }}
         >
           <div
-            style={{
-              margin: '15px'
-
-            }} className='hidden  lg:flex flex-col gap-4  rounded-2xl  border-neutral-700 '
+            className='hidden lg:flex flex-col gap-2'
+            style={{ margin: '16px 12px', padding: '16px', background: '#0a0a12', border: '1px solid #1e1e35', borderRadius: '2px' }}
           >
-
             <FollowingList state={state} user={user} users={users} />
 
-            <Link to={'/users'}
-              className='
-                      mt-2
-                      py-2
-                      rounded-2xl
-                      flex items-center justify-center gap-2
-                      text-sm font-semibold
-                      text-neutral-300
-                      hover:text-white
-                      hover:bg-neutral-700/50
-                      cursor-pointer
-                      transition-all duration-300
-                    '
+            <Link
+              to={'/users'}
+              style={{
+                marginTop: '10px',
+                display: 'flex',
+                alignItems: 'center',
+                justifyContent: 'center',
+                gap: '6px',
+                padding: '8px',
+                fontFamily: "'Share Tech Mono', monospace",
+                fontSize: '0.7rem',
+                color: '#6a6a8a',
+                textTransform: 'uppercase',
+                letterSpacing: '0.12em',
+                border: '1px solid #1e1e35',
+                borderRadius: '2px',
+                transition: 'all 0.2s ease',
+                background: 'transparent',
+              }}
+              onMouseEnter={e => {
+                const el = e.currentTarget
+                el.style.borderColor = '#00ff8766'
+                el.style.color = '#00ff87'
+              }}
+              onMouseLeave={e => {
+                const el = e.currentTarget
+                el.style.borderColor = '#1e1e35'
+                el.style.color = '#6a6a8a'
+              }}
             >
-              See more <ArrowRightCircle size={16} />
+              View all users <ArrowRightCircle size={14} />
             </Link>
           </div>
-
         </aside>
       </div>
 

@@ -1,131 +1,147 @@
 
-a{
+a {
   text-decoration: none;
 }
-a>*{
+a > * {
   margin-right: 10px;
 }
-*{
-  color: whitesmoke;
-    font-family: "Inter", sans-serif;
+* {
+  font-family: 'Rajdhani', 'Share Tech Mono', system-ui, sans-serif;
   font-weight: 400;
   font-style: normal;
- user-select: text;
+  user-select: text;
+  color: inherit;
 }
-img,div {
-  user-select: none;  
-  outline: none;     
+img, div {
+  user-select: none;
+  outline: none;
 }
-input{
-  background-color:transparent;
-  border-radius: 3px;
-  border:  1.5px solid rgb(151, 151, 151);
-  padding: 5px;
-}
-:root{
-  background-color: rgb(36, 36, 39);
 
+/* ── Inputs — Retro Gaming ── */
+input {
+  background-color: transparent;
+  border-radius: 2px;
+  border: 1.5px solid #1e1e35;
+  padding: 8px 12px;
+  color: #e0e0f0;
+  font-family: 'Share Tech Mono', monospace;
+  font-size: 0.9rem;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+  width: 100%;
 }
-.header{
-  background-color: rgb(36, 36, 39);
+input:focus {
+  outline: none;
+  border-color: #00ff87;
+  box-shadow: 0 0 8px #00ff8766, inset 0 0 4px #00ff8711;
+}
+
+input:-webkit-autofill {
+  background-color: transparent !important;
+  -webkit-box-shadow: 0 0 0 1000px #0f0f1a inset !important;
+  -webkit-text-fill-color: #e0e0f0 !important;
+}
+
+:root {
+  background-color: #07070d;
+}
+
+/* ── Header / Sidebar ── */
+.header {
+  background-color: #0a0a12;
   width: 15vw;
   height: 100vh;
   display: flex;
   position: fixed;
-  border-right: rgba(255, 255, 255, 0.134) 2px solid;
+  border-right: 1px solid #1e1e35;
 }
 
-.header2{
-  background-color: rgb(39, 39, 45);
+.header2 {
+  background-color: #0d0d1a;
   width: 19vw;
   height: 100vh;
-  border-right: 1px solid white;
   display: flex;
-  border-right: solid 1px white;
+  flex-direction: column;
+  border-right: 1px solid #1e1e35;
   position: fixed;
   left: 13vw;
 }
-.header2{
-  display: flex;
-  flex-direction: column  ;
-}
-.header  {
+
+.header {
   padding: 20px;
 }
-.header li, .header2 li{
+
+.header li, .header2 li {
   margin: 50px 10px;
   font-size: 35px;
   list-style: none;
 }
+
 a {
   display: flex;
-transition:  0.3s ;
+  transition: 0.2s;
   padding: 6px;
   justify-content: center;
   align-items: center;
-
-
 }
-a:hover{
-  background-color: rgb(52, 55, 48);
-  border-radius: 10px;
+
+a:hover {
+  background: linear-gradient(90deg, rgba(0, 255, 135, 0.08) 0%, transparent 100%);
+  border-radius: 2px;
   display: flex;
+  color: #00ff87;
+  text-shadow: 0 0 8px #00ff8799;
 }
 
-button{
-  background-color: rgb(126, 46, 32);
-  border-radius: 10px;
-  border: none;
-  padding: 5px 20px;
+/* ── Buttons — Retro Gaming ── */
+button {
+  font-family: 'Rajdhani', monospace;
+  font-weight: 700;
+  font-size: 0.9rem;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  background: transparent;
+  border: 1.5px solid #00ff87;
+  color: #00ff87;
+  border-radius: 2px;
+  padding: 6px 20px;
   cursor: pointer;
-
   margin: 5px 1px;
-
+  transition: background 0.15s ease, color 0.15s ease, border-color 0.15s ease;
 }
-button:focus{
+button:hover {
+  background: #00ff87;
+  color: #07070d;
+}
+button:focus {
   outline: none;
+  box-shadow: 0 0 8px #00ff8766;
 }
 
-li{
+/* ── Destructive / secondary buttons ── */
+button.btn-secondary {
+  border-color: #1e1e35;
+  color: #6a6a8a;
+}
+button.btn-secondary::before {
+  background: #1a1a2e;
+}
+button.btn-secondary:hover {
+  color: #e0e0f0;
+}
+
+li {
   list-style: none;
-
 }
 
-
-
-
-
-
-.button-Form{
-  background-color: rgba(38, 32, 106, 0.122);
+.button-Form {
+  background-color: rgba(0, 255, 135, 0.06);
   width: 50%;
-  border-radius: 50px;
+  border-radius: 2px;
+  border: 1.5px solid #00ff8755;
 }
 
-
-
-
-
-
-
-
-
-.receptorMessage{
-  border-radius: 10px;
+.receptorMessage {
+  border-radius: 2px;
   display: flex;
   width: 100%;
 }
-
-
-
-
-input:-webkit-autofill {
-  background-color: transparent !important;
-  -webkit-box-shadow: 0 0 0 1000px white inset !important;
-  -webkit-text-fill-color: #000 !important;
-}
-
-
-
-
-

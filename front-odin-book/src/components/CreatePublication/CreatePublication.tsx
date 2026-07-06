@@ -71,7 +71,7 @@ function CreatePublication({ setOpenDialog, opendialog }: props) {
         onClick={(e) => e.stopPropagation()} 
       >
         <header className="border-b pb-4 text-center">
-          <h2 className="text-xl font-semibold text-white">
+          <h2 className="text-xl font-semibold text-white!">
             Create New Publication
           </h2>
         </header>
@@ -82,13 +82,13 @@ function CreatePublication({ setOpenDialog, opendialog }: props) {
           method="post"
           encType="multipart/form-data"
         >
-          <div className="flex flex-col items-center">
+          <div className="flex flex-col items-center hover:text-white!">
             <label
               htmlFor="publicationImg"
               className="group flex h-48 w-full cursor-pointer flex-col items-center justify-center rounded-lg border-2 border-dashed border-gray-300 bg-black  text-gray-500 hover:border-blue-500 hover:bg-blue-950/40 hover:text-blue-600 transition duration-150 ease-in-out"
             >
-              <Image className="h-10 w-10 mb-2 group-hover:text-blue-600" />
-              <span className="text-sm font-medium">
+              <Image className="h-10 w-10 mb-2 group-hover:text-blue-600!" />
+              <span className="text-sm font-medium ">
                 Click to select an image
               </span>
             </label>
@@ -111,7 +111,7 @@ function CreatePublication({ setOpenDialog, opendialog }: props) {
           <div>
             <label
               htmlFor="description"
-              className="mb-1 block text-sm font-medium text-gray-700"
+              className="mb-1 block text-sm font-medium text-gray-700!"
             >
               Description
             </label>

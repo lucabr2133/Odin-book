@@ -39,10 +39,11 @@ if(!userContext) throw new Error("you need a valid provider")
 
   if (isLoading||!publications||!userData||!followingState||!username||!users||!userSession) {
     return (
-    <div className="min-h-screen flex items-center justify-center flex-col gap-5">
-    <h2>Loading...</h2>
-    <div className="w-12 h-12 border-4 border-blue-500 border-t-transparent rounded-full animate-spin"></div>
-  </div>
+      <div style={{ minHeight: '100vh', display: 'flex', alignItems: 'center', justifyContent: 'center', flexDirection: 'column', gap: '20px', background: '#07070d' }}>
+        <span style={{ fontFamily: "'Share Tech Mono', monospace", fontSize: '0.75rem', color: '#00ff87', letterSpacing: '0.2em', textShadow: '0 0 8px #00ff87' }}>LOADING...</span>
+        <div style={{ width: '40px', height: '40px', border: '2px solid #1e1e35', borderTop: '2px solid #00ff87', borderRadius: '50%', animation: 'spin 0.8s linear infinite', boxShadow: '0 0 10px #00ff8766' }} />
+        <style>{`@keyframes spin { to { transform: rotate(360deg); } }`}</style>
+      </div>
     )
   }
  
@@ -55,21 +56,23 @@ if(!userContext) throw new Error("you need a valid provider")
 
   return (
     <>
-      <div className={` lg:grid lg:grid-cols-[15%] min-h-screen flex flex-col  `}>
+      <div className='min-h-screen' style={{ backgroundColor: '#07070d' }}>
         <MainHeader userActive={userSession} setOpenDialog2s={setOpenDialog2s} />
-        <div className={styles.mainpublication}>
+        {/* paddingLeft = sidebar width on desktop, paddingBottom = bottom nav on mobile */}
+        <div
+          className={styles.mainpublication}
+          style={{ paddingLeft: 'clamp(0px, 15vw, 15vw)' }}
+        >
           <Header
-            data={{ userData, userSession, publications,following:followingState.following }}
+            data={{ userData, userSession, publications, following: followingState.following }}
             actions={{ setUserData }}
             usernameParam={username}
             styles={styles}
           />
           <div className={styles['my-publications']}>
-            <PublicationGrid extra={{deleteAction, userSession, userData, users, setUpdateForm ,setPublications:setPublication }} styles={styles} data={{ sortedVideos, publications }} />
+            <PublicationGrid extra={{ deleteAction, userSession, userData, users, setUpdateForm, setPublications: setPublication }} styles={styles} data={{ sortedVideos, publications }} />
           </div>
-
         </div>
-
       </div>
 
       <UpdatePublicationProfile updateForm={updateForm} setUpdateForm={setUpdateForm} setPublication={setPublication} updatePublication={updatePublication} />
